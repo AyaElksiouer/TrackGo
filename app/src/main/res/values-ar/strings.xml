@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- العربية : كل اسم يجب أن يطابق الملف الفرنسي (values/strings.xml). -->
+<resources>
+    <!-- ===== التنقل ===== -->
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_history">السجل</string>
+    <string name="nav_delivery_management">إدارة الطلبات</string>
+    <string name="nav_profile">الملف الشخصي</string>
+
+    <!-- ===== اختيار اللغة ===== -->
+    <string name="language_selector_description">اختيار اللغة</string>
+
+    <!-- ===== حالات التوصيل ===== -->
+    <string name="status_waiting">في الانتظار</string>
+    <string name="status_in_progress">التوصيل جارٍ</string>
+    <string name="status_finished">اكتمل التوصيل</string>
+
+    <!-- ===== عناوين وصيغ مشتركة ===== -->
+    <string name="distance_km_value">%1$.2f كم</string>
+    <string name="label_distance">المسافة: %1$s</string>
+    <string name="label_distance_travelled">المسافة المقطوعة: %1$s</string>
+    <string name="label_duration">المدة: %1$s</string>
+    <string name="label_status">الحالة: %1$s</string>
+    <string name="label_date">التاريخ: %1$s</string>
+    <string name="label_start_time">وقت البدء: %1$s</string>
+    <string name="btn_ok">حسنًا</string>
+    <string name="btn_close">إغلاق</string>
+    <string name="btn_save">حفظ</string>
+    <string name="btn_cancel">إلغاء</string>
+
+    <!-- ===== الرئيسية ===== -->
+    <string name="home_welcome">مرحبًا بك في TrackGo</string>
+    <string name="home_subtitle">تابع توصيلاتك في الوقت الفعلي</string>
+    <string name="home_position_title">موقع عامل التوصيل</string>
+    <string name="home_tracking_title">معلومات التتبع</string>
+    <string name="btn_start_delivery">بدء التوصيل</string>
+    <string name="btn_finish_delivery">إنهاء التوصيل</string>
+    <string name="marker_my_position">موقعي</string>
+    <string name="toast_delivery_already_running">التوصيل جارٍ بالفعل</string>
+    <string name="toast_no_delivery_running">لا يوجد توصيل جارٍ</string>
+    <string name="toast_delivery_saved">تم حفظ التوصيل (الإجمالي: %1$d)</string>
+    <string name="finish_dialog_message">المسافة الإجمالية: %1$s\nالمدة: %2$s</string>
+
+    <!-- ===== الأذونات ===== -->
+    <string name="permission_location_rationale">يحتاج TrackGo إلى موقعك لتتبع التوصيل</string>
+    <string name="permission_location_denied">تم رفض الإذن: لا يمكن لـ TrackGo تتبع موقعك</string>
+    <string name="permission_notification_rationale">يرسل TrackGo إشعارًا عند انتهاء التوصيل. اسمح بالإشعارات لتلقيه.</string>
+    <string name="permission_notification_denied">تم رفض الإشعارات: لن تتلقى إشعار انتهاء التوصيل</string>
+
+    <!-- ===== إدارة التوصيل ===== -->
+    <string name="management_title">إدارة الطلبات</string>
+    <string name="management_current_title">التوصيل الحالي</string>
+    <string name="management_no_current">لا يوجد توصيل جارٍ. ابدأ توصيلًا من تبويب الرئيسية.</string>
+    <string name="management_finished_title">التوصيلات المكتملة</string>
+    <string name="management_finished_empty">لا توجد توصيلات مكتملة حاليًا.</string>
+
+    <!-- ===== السجل ===== -->
+    <string name="history_title">السجل</string>
+    <string name="history_search_hint">ابحث عن توصيل</string>
+    <string name="chip_all">الكل</string>
+    <string name="chip_today">اليوم</string>
+    <string name="chip_week">هذا الأسبوع</string>
+    <string name="chip_month">هذا الشهر</string>
+    <plurals name="history_results">
+        <item quantity="zero">لا توجد توصيلات</item>
+        <item quantity="one">تم العثور على توصيل واحد</item>
+        <item quantity="two">تم العثور على توصيلين</item>
+        <item quantity="few">تم العثور على %d توصيلات</item>
+        <item quantity="many">تم العثور على %d توصيلًا</item>
+        <item quantity="other">تم العثور على %d توصيل</item>
+    </plurals>
+    <string name="history_no_deliveries">لا توجد توصيلات محفوظة حاليًا.</string>
+    <string name="history_no_results">لا توجد نتائج تطابق بحثك أو عوامل التصفية.</string>
+    <string name="history_row_title">%1$s الساعة %2$s</string>
+    <string name="history_row_arrow">‹</string>
+    <string name="history_details_title">تفاصيل التوصيل</string>
+
+    <!-- ===== الملف الشخصي ===== -->
+    <string name="profile_title">ملف عامل التوصيل</string>
+    <string name="profile_empty_title">الملف الشخصي غير مكتمل</string>
+    <string name="profile_empty_message">أدخل معلوماتك لإنشاء ملفك الشخصي كعامل توصيل.</string>
+    <string name="profile_fill_button">إدخال ملفي الشخصي</string>
+    <string name="profile_edit_button">تعديل الملف الشخصي</string>
+    <string name="profile_last_name">الاسم العائلي: %1$s</string>
+    <string name="profile_first_name">الاسم الشخصي: %1$s</string>
+    <string name="profile_age">العمر: %1$d سنة</string>
+    <string name="profile_license">نوع رخصة السياقة: %1$s</string>
+    <string name="profile_cin">رقم البطاقة الوطنية / المعرّف: %1$s</string>
+    <string name="toast_profile_saved">تم حفظ الملف الشخصي</string>
+    <!-- Redesign du Profil (étape 6A) -->
+    <string name="profile_role">عامل توصيل TrackGo</string>
+    <string name="profile_info_section">المعلومات الشخصية</string>
+    <string name="profile_age_value">%1$d سنة</string>
+    <string name="profile_form_subtitle">تظهر هذه المعلومات في رمز QR الخاص بك</string>
+
+    <!-- نموذج الملف الشخصي -->
+    <string name="hint_last_name">الاسم العائلي</string>
+    <string name="hint_first_name">الاسم الشخصي</string>
+    <string name="hint_age">العمر</string>
+    <string name="hint_license">نوع رخصة السياقة</string>
+    <string name="hint_cin">رقم البطاقة الوطنية / المعرّف</string>
+    <string name="helper_cin">للاختبار، أدخل رقمًا وهميًا (مثال: AB123456)</string>
+    <string name="error_last_name">الاسم العائلي مطلوب</string>
+    <string name="error_first_name">الاسم الشخصي مطلوب</string>
+    <string name="error_age">أدخل عمرًا بين %1$d و%2$d سنة</string>
+    <string name="error_license">اختر نوع رخصة السياقة</string>
+    <string name="error_cin">رقم البطاقة الوطنية / المعرّف مطلوب</string>
+
+    <!-- رمز QR -->
+    <string name="qr_title">رمز QR الخاص بي</string>
+    <string name="qr_hint">امسح الرمز للاطلاع على معلومات عامل التوصيل</string>
+    <string name="qr_content_description">رمز QR لعامل التوصيل</string>
+    <string name="qr_payload">الاسم العائلي: %1$s\nالاسم الشخصي: %2$s\nالعمر: %3$d\nالرخصة: %4$s\nرقم البطاقة الوطنية: %5$s</string>
+
+    <!-- ===== إشعار انتهاء التوصيل ===== -->
+    <string name="notif_channel_name">التوصيلات</string>
+    <string name="notif_channel_description">إشعار يُرسل عند انتهاء التوصيل</string>
+    <string name="notif_text">المسافة: %1$s · المدة: %2$s</string>
+    <string name="notif_big_text">المسافة المقطوعة: %1$s\nالمدة: %2$s</string>
+
+    <!-- ===== الطلبيات التجريبية ===== -->
+    <string name="order_marker_title">الطلبية %1$s</string>
+    <string name="toast_position_unavailable">الموقع غير متاح: تعذّر إنشاء الطلبيات. فعّل خدمة الموقع ثم عد إلى تبويب الرئيسية.</string>
+
+    <!-- تفاصيل الطلبية -->
+    <string name="order_label_customer">العميل: %1$s</string>
+    <string name="order_label_phone">الهاتف: %1$s</string>
+    <string name="order_label_amount">المبلغ: %1$s</string>
+    <string name="order_amount_value">%1$.0f درهم</string>
+    <string name="btn_accept">قبول</string>
+    <string name="btn_refuse">رفض</string>
+    <string name="toast_order_accepted">تم قبول الطلبية %1$s</string>
+    <string name="toast_order_refused">تم رفض الطلبية %1$s</string>
+
+    <!-- ===== إدارة التوصيل: الطلبيات (المرحلة 6) ===== -->
+    <string name="management_orders_title">الطلبيات</string>
+    <string name="management_orders_empty">لا توجد طلبيات مقبولة حاليًا. اقبل طلبية من تبويب الرئيسية.</string>
+    <string name="order_status_waiting">في الانتظار</string>
+    <string name="order_status_in_progress">جارية</string>
+    <string name="order_status_delivered">مُسلَّمة</string>
+    <string name="order_status_cancelled">ملغاة</string>
+    <string name="order_label_cancel_reason">سبب الإلغاء: %1$s</string>
+    <string name="btn_cancel_order">إلغاء الطلبية</string>
+    <string name="btn_confirm_cancel_order">تأكيد الإلغاء</string>
+    <string name="btn_back">رجوع</string>
+    <string name="cancel_order_dialog_title">إلغاء الطلبية %1$s</string>
+    <string name="cancel_order_hint">سبب الإلغاء</string>
+    <string name="cancel_order_error_reason">سبب الإلغاء مطلوب</string>
+    <string name="toast_order_cancelled">تم إلغاء الطلبية %1$s</string>
+    <string name="toast_order_cancel_impossible">لا يمكن إلغاء هذه الطلبية</string>
+
+    <!-- ===== المرحلة 7أ: بدء الطلبية وإنهاؤها ===== -->
+    <string name="btn_start_order">ابدأ</string>
+    <string name="btn_finish_order">إنهاء</string>
+    <string name="toast_order_started">تم بدء الطلبية %1$s</string>
+    <string name="toast_order_start_impossible">لا يمكن بدء هذه الطلبية</string>
+    <string name="toast_order_tracking_inactive">تتبع هذه الطلبية غير نشط. يمكنك إلغاؤها.</string>
+    <string name="finish_order_dialog_title">تم تسليم الطلبية %1$s</string>
+
+    <!-- ===== الرئيسية: التوصيل الجاري (المرحلة 7B) ===== -->
+    <string name="home_current_order">الطلبية: %1$s</string>
+    <string name="home_no_active_delivery">لا يوجد توصيل جارٍ</string>
+</resources>

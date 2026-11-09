@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ENGLISH : every name must match the French file (values/strings.xml). -->
+<resources>
+    <!-- ===== Navigation ===== -->
+    <string name="nav_home">Home</string>
+    <string name="nav_history">History</string>
+    <string name="nav_delivery_management">Order Management</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- ===== Language selector ===== -->
+    <string name="language_selector_description">Choose language</string>
+
+    <!-- ===== Delivery statuses ===== -->
+    <string name="status_waiting">Waiting</string>
+    <string name="status_in_progress">Delivery in progress</string>
+    <string name="status_finished">Delivery completed</string>
+
+    <!-- ===== Common labels and formats ===== -->
+    <string name="distance_km_value">%1$.2f km</string>
+    <string name="label_distance">Distance: %1$s</string>
+    <string name="label_distance_travelled">Distance travelled: %1$s</string>
+    <string name="label_duration">Duration: %1$s</string>
+    <string name="label_status">Status: %1$s</string>
+    <string name="label_date">Date: %1$s</string>
+    <string name="label_start_time">Start time: %1$s</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_close">Close</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_cancel">Cancel</string>
+
+    <!-- ===== Home ===== -->
+    <string name="home_welcome">Welcome to TrackGo</string>
+    <string name="home_subtitle">Track your deliveries in real time</string>
+    <string name="home_position_title">Delivery driver position</string>
+    <string name="home_tracking_title">Tracking information</string>
+    <string name="btn_start_delivery">Start delivery</string>
+    <string name="btn_finish_delivery">Finish delivery</string>
+    <string name="marker_my_position">My position</string>
+    <string name="toast_delivery_already_running">The delivery is already in progress</string>
+    <string name="toast_no_delivery_running">No delivery in progress</string>
+    <string name="toast_delivery_saved">Delivery saved (%1$d in total)</string>
+    <string name="finish_dialog_message">Total distance: %1$s\nDuration: %2$s</string>
+
+    <!-- ===== Permissions ===== -->
+    <string name="permission_location_rationale">TrackGo needs your location to track the delivery</string>
+    <string name="permission_location_denied">Permission denied: TrackGo cannot track your position</string>
+    <string name="permission_notification_rationale">TrackGo sends a notification when the delivery ends. Allow notifications to receive it.</string>
+    <string name="permission_notification_denied">Notifications denied: you will not receive the end-of-delivery notification</string>
+
+    <!-- ===== Delivery management ===== -->
+    <string name="management_title">Order Management</string>
+    <string name="management_current_title">Current delivery</string>
+    <string name="management_no_current">No delivery in progress. Start a delivery from the Home tab.</string>
+    <string name="management_finished_title">Completed deliveries</string>
+    <string name="management_finished_empty">No completed delivery yet.</string>
+
+    <!-- ===== History ===== -->
+    <string name="history_title">History</string>
+    <string name="history_search_hint">Search for a delivery</string>
+    <string name="chip_all">All</string>
+    <string name="chip_today">Today</string>
+    <string name="chip_week">This week</string>
+    <string name="chip_month">This month</string>
+    <plurals name="history_results">
+        <item quantity="one">%d delivery found</item>
+        <item quantity="other">%d deliveries found</item>
+    </plurals>
+    <string name="history_no_deliveries">No delivery saved yet.</string>
+    <string name="history_no_results">No result matches your search or filters.</string>
+    <string name="history_row_title">%1$s at %2$s</string>
+    <string name="history_row_arrow">›</string>
+    <string name="history_details_title">Delivery details</string>
+
+    <!-- ===== Profile ===== -->
+    <string name="profile_title">Delivery driver profile</string>
+    <string name="profile_empty_title">Profile not filled in</string>
+    <string name="profile_empty_message">Fill in your information to create your delivery driver profile.</string>
+    <string name="profile_fill_button">Fill in my profile</string>
+    <string name="profile_edit_button">Edit profile</string>
+    <string name="profile_last_name">Last name: %1$s</string>
+    <string name="profile_first_name">First name: %1$s</string>
+    <string name="profile_age">Age: %1$d years</string>
+    <string name="profile_license">License type: %1$s</string>
+    <string name="profile_cin">CIN / ID: %1$s</string>
+    <string name="toast_profile_saved">Profile saved</string>
+    <!-- Redesign du Profil (étape 6A) -->
+    <string name="profile_role">TrackGo delivery driver</string>
+    <string name="profile_info_section">Personal information</string>
+    <string name="profile_age_value">%1$d years</string>
+    <string name="profile_form_subtitle">This information appears on your QR Code</string>
+
+    <!-- Profile form -->
+    <string name="hint_last_name">Last name</string>
+    <string name="hint_first_name">First name</string>
+    <string name="hint_age">Age</string>
+    <string name="hint_license">License type</string>
+    <string name="hint_cin">CIN / ID</string>
+    <string name="helper_cin">For tests, enter a fictitious number (e.g. AB123456)</string>
+    <string name="error_last_name">Last name is required</string>
+    <string name="error_first_name">First name is required</string>
+    <string name="error_age">Enter an age between %1$d and %2$d years</string>
+    <string name="error_license">Choose a license type</string>
+    <string name="error_cin">The CIN / ID is required</string>
+
+    <!-- QR Code -->
+    <string name="qr_title">My QR Code</string>
+    <string name="qr_hint">Scan to view the delivery driver\'s information</string>
+    <string name="qr_content_description">Delivery driver QR Code</string>
+    <string name="qr_payload">Last name: %1$s\nFirst name: %2$s\nAge: %3$d\nLicense: %4$s\nCIN: %5$s</string>
+
+    <!-- ===== End-of-delivery notification ===== -->
+    <string name="notif_channel_name">Deliveries</string>
+    <string name="notif_channel_description">Notification sent when a delivery ends</string>
+    <string name="notif_text">Distance: %1$s · Duration: %2$s</string>
+    <string name="notif_big_text">Distance travelled: %1$s\nDuration: %2$s</string>
+
+    <!-- ===== Simulated orders ===== -->
+    <string name="order_marker_title">Order %1$s</string>
+    <string name="toast_position_unavailable">Position unavailable: orders could not be generated. Turn on location, then come back to the Home tab.</string>
+
+    <!-- Order details -->
+    <string name="order_label_customer">Customer: %1$s</string>
+    <string name="order_label_phone">Phone: %1$s</string>
+    <string name="order_label_amount">Amount: %1$s</string>
+    <string name="order_amount_value">%1$.0f MAD</string>
+    <string name="btn_accept">Accept</string>
+    <string name="btn_refuse">Refuse</string>
+    <string name="toast_order_accepted">Order %1$s accepted</string>
+    <string name="toast_order_refused">Order %1$s refused</string>
+
+    <!-- ===== Delivery management: orders (step 6) ===== -->
+    <string name="management_orders_title">Orders</string>
+    <string name="management_orders_empty">No accepted order yet. Accept an order from the Home tab.</string>
+    <string name="order_status_waiting">Waiting</string>
+    <string name="order_status_in_progress">In progress</string>
+    <string name="order_status_delivered">Delivered</string>
+    <string name="order_status_cancelled">Cancelled</string>
+    <string name="order_label_cancel_reason">Cancellation reason: %1$s</string>
+    <string name="btn_cancel_order">Cancel order</string>
+    <string name="btn_confirm_cancel_order">Confirm cancellation</string>
+    <string name="btn_back">Back</string>
+    <string name="cancel_order_dialog_title">Cancel order %1$s</string>
+    <string name="cancel_order_hint">Cancellation reason</string>
+    <string name="cancel_order_error_reason">The cancellation reason is required</string>
+    <string name="toast_order_cancelled">Order %1$s cancelled</string>
+    <string name="toast_order_cancel_impossible">This order cannot be cancelled</string>
+
+    <!-- ===== Step 7A: start and finish an order ===== -->
+    <string name="btn_start_order">Start</string>
+    <string name="btn_finish_order">Finish</string>
+    <string name="toast_order_started">Order %1$s started</string>
+    <string name="toast_order_start_impossible">This order cannot be started</string>
+    <string name="toast_order_tracking_inactive">Tracking is not active for this order. You can cancel it.</string>
+    <string name="finish_order_dialog_title">Order %1$s delivered</string>
+
+    <!-- ===== Home: tracked delivery (step 7B) ===== -->
+    <string name="home_current_order">Order: %1$s</string>
+    <string name="home_no_active_delivery">No delivery in progress</string>
+</resources>
