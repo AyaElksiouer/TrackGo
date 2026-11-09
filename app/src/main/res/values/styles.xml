@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ===================== BOUTONS ===================== -->
+    <!-- Bouton plein (principal). Appliqué automatiquement à tous les boutons sans "style". -->
+    <style name="Widget.TrackGo.Button" parent="Widget.Material3.Button">
+        <item name="android:minHeight">@dimen/tg_button_height</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelLarge</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.TrackGo.Button</item>
+    </style>
+
+    <!-- Bouton à contour. Appliqué à style="?attr/materialButtonOutlinedStyle". -->
+    <style name="Widget.TrackGo.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:minHeight">@dimen/tg_button_height</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelLarge</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.TrackGo.Button</item>
+    </style>
+
+    <!-- Bouton tonal (secondaire discret) : à utiliser dans les prochaines étapes -->
+    <style name="Widget.TrackGo.Button.Tonal" parent="Widget.Material3.Button.TonalButton">
+        <item name="android:minHeight">@dimen/tg_button_height</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelLarge</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.TrackGo.Button</item>
+    </style>
+
+    <!-- Bouton « succès » vert (ex. Terminer la livraison) : prochaines étapes -->
+    <style name="Widget.TrackGo.Button.Success" parent="Widget.TrackGo.Button">
+        <item name="backgroundTint">?attr/colorTertiary</item>
+        <item name="android:textColor">?attr/colorOnTertiary</item>
+    </style>
+
+    <!-- Bouton à contour rouge (ex. Annuler la commande) : prochaines étapes -->
+    <style name="Widget.TrackGo.Button.Outlined.Danger" parent="Widget.TrackGo.Button.Outlined">
+        <item name="strokeColor">?attr/colorError</item>
+        <item name="android:textColor">?attr/colorError</item>
+        <item name="rippleColor">?attr/colorErrorContainer</item>
+    </style>
+
+    <!-- ===================== CARTES ===================== -->
+    <!-- Appliqué automatiquement à toutes les MaterialCardView : fond tonal, trait fin, sans ombre -->
+    <style name="Widget.TrackGo.Card" parent="Widget.Material3.CardView.Outlined">
+        <item name="cardBackgroundColor">?attr/colorSurfaceContainerLow</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">?attr/colorOutlineVariant</item>
+        <item name="strokeWidth">@dimen/tg_stroke</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.TrackGo.Card</item>
+    </style>
+
+    <!-- ===================== CHAMPS DE SAISIE ===================== -->
+    <style name="Widget.TrackGo.TextInputLayout.OutlinedBox" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">@dimen/tg_radius_field</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/tg_radius_field</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/tg_radius_field</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/tg_radius_field</item>
+    </style>
+
+    <style name="Widget.TrackGo.TextInputLayout.OutlinedBox.ExposedDropdownMenu" parent="Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxCornerRadiusTopStart">@dimen/tg_radius_field</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/tg_radius_field</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/tg_radius_field</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/tg_radius_field</item>
+    </style>
+
+    <!-- ===================== CHIPS (filtres) ===================== -->
+    <style name="Widget.TrackGo.Chip.Filter" parent="Widget.Material3.Chip.Filter">
+        <item name="shapeAppearance">@style/ShapeAppearance.TrackGo.Pill</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelLarge</item>
+    </style>
+
+    <!-- ===================== BARRE DE NAVIGATION ===================== -->
+    <!-- Fond tonal, hauteur et ripple : repris de Material 3 (le fond suit le thème clair/sombre).
+         On personnalise ici : couleurs des icônes et libellés, indicateur de l'onglet actif,
+         libellés toujours visibles. Appliqué automatiquement à la barre (voir themes.xml). -->
+    <style name="Widget.TrackGo.BottomNavigation" parent="Widget.Material3.BottomNavigationView">
+        <item name="itemIconTint">@color/tg_nav_item</item>
+        <item name="itemTextColor">@color/tg_nav_item</item>
+        <item name="itemActiveIndicatorStyle">@style/Widget.TrackGo.BottomNavigation.ActiveIndicator</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="itemTextAppearanceActive">@style/TextAppearance.TrackGo.NavLabel</item>
+        <item name="itemTextAppearanceInactive">@style/TextAppearance.TrackGo.NavLabel</item>
+    </style>
+
+    <!-- Pastille derrière l'icône de l'onglet actif : bleu clair (clair) / bleu profond (sombre) -->
+    <style name="Widget.TrackGo.BottomNavigation.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">?attr/colorPrimaryContainer</item>
+    </style>
+
+</resources>
