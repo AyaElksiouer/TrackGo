@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Une carte "livraison" de l'Historique (design : étape 5 du redesign).
+     Les textes sont remplis par HistoryFragment.kt ("tools:text" = aperçu seulement).
+     La carte entière est cliquable (rowHistory) : elle ouvre les détails.
+     Style de carte TrackGo automatique ; couleurs du thème (clair / sombre). -->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rowHistory"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/tg_space_m"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/tg_space_l">
+
+        <!-- Ligne 1 : badge vert (livraison terminée), titre + date, flèche -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:cardBackgroundColor="?attr/colorTertiaryContainer"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_history_check"
+                    app:tint="?attr/colorOnTertiaryContainer" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tg_space_m"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <!-- "Commande CMD-1002", ou la date et l'heure si la livraison n'a pas de commande -->
+                <TextView
+                    android:id="@+id/txtHistoryTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                    android:textColor="?attr/colorOnSurface"
+                    tools:text="Commande CMD-1002" />
+
+                <!-- Date et heure (masquée quand elles sont déjà dans le titre) -->
+                <TextView
+                    android:id="@+id/txtHistoryDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tg_space_xs"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:visibility="gone"
+                    tools:text="02/11/2026 à 22:27"
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+
+            <!-- La flèche est un texte : "›" en français et anglais, "‹" en arabe
+                 (elle pointe toujours vers la fin de la ligne) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tg_space_s"
+                android:text="@string/history_row_arrow"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <!-- Ligne 2 : deux blocs tonaux de même largeur, distance et durée -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tg_space_m"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/tg_space_s"
+                android:layout_weight="1"
+                app:cardBackgroundColor="?attr/colorSurfaceContainerHighest"
+                app:cardCornerRadius="@dimen/tg_radius_button"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/tg_space_m">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_history_distance"
+                        app:tint="?attr/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/txtHistoryDistance"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/tg_space_s"
+                        android:layout_weight="1"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textColor="?attr/colorOnSurface"
+                        tools:text="3.40 km" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tg_space_s"
+                android:layout_weight="1"
+                app:cardBackgroundColor="?attr/colorSurfaceContainerHighest"
+                app:cardCornerRadius="@dimen/tg_radius_button"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/tg_space_m">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_history_clock"
+                        app:tint="?attr/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/txtHistoryDuration"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/tg_space_s"
+                        android:layout_weight="1"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textColor="?attr/colorOnSurface"
+                        tools:text="00:12:30" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Contenu de la fenêtre qui monte du bas (BottomSheetDialog) quand on clique sur une commande.
+     Tous les textes sont remplis par HomeFragment.kt (showOrderDialog) :
+     "tools:text" ne sert qu'à l'aperçu dans Android Studio.
+     ÉTAPE 3C : design « Route de nuit ». Les IDs et les types de vues n'ont pas changé,
+     HomeFragment.kt fonctionne donc sans aucune modification.
+     Toutes les couleurs viennent du thème (clair / sombre automatiques),
+     toutes les marges de l'échelle tg_space_*. start/end partout : l'arabe s'inverse tout seul. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/tg_space_xxl"
+    android:paddingTop="@dimen/tg_space_xxl"
+    android:paddingEnd="@dimen/tg_space_xxl"
+    android:paddingBottom="@dimen/tg_space_xxl">
+
+    <!-- Ligne du titre : petite pastille orange (rappel du marqueur orange des commandes
+         disponibles sur la carte) + "Commande CMD-1002".
+         La pastille est une carte 10dp aux coins arrondis à 5dp : pas de fichier drawable en plus.
+         tgPending = orange du thème (change tout seul en mode clair / sombre). -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="@dimen/tg_space_s"
+            android:importantForAccessibility="no"
+            app:cardBackgroundColor="?attr/tgPending"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp" />
+
+        <TextView
+            android:id="@+id/txtOrderTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
+            android:textColor="?attr/colorOnSurface"
+            tools:text="Commande CMD-1002" />
+
+    </LinearLayout>
+
+    <!-- Séparateur fin sous le titre -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tg_stroke"
+        android:layout_marginTop="@dimen/tg_space_m"
+        android:background="?attr/colorOutlineVariant" />
+
+    <!-- Bloc d'informations sur fond tonal (sans trait de contour) -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tg_space_l"
+        app:cardBackgroundColor="?attr/colorSurfaceContainerHighest"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/tg_space_l">
+
+            <TextView
+                android:id="@+id/txtOrderCustomer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
+                android:textColor="?attr/colorOnSurface"
+                tools:text="Client : Khadija Bennani" />
+
+            <TextView
+                android:id="@+id/txtOrderPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tg_space_m"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
+                android:textColor="?attr/colorOnSurface"
+                tools:text="Téléphone : 06 12 34 56 78" />
+
+            <TextView
+                android:id="@+id/txtOrderAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tg_space_m"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
+                android:textColor="?attr/colorOnSurface"
+                tools:text="Montant : 85 MAD" />
+
+            <TextView
+                android:id="@+id/txtOrderDistance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tg_space_m"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
+                android:textColor="?attr/colorOnSurface"
+                tools:text="Distance : 0.45 km" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Deux boutons de même largeur : Refuser (contour neutre) et Accepter (plein, bleu TrackGo) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tg_space_xxl"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRefuseOrder"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/tg_space_s"
+            android:layout_weight="1"
+            android:text="@string/btn_refuse"
+            android:textColor="?attr/colorOnSurface"
+            app:rippleColor="?attr/colorSurfaceContainerHighest"
+            app:strokeColor="?attr/colorOutline" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAcceptOrder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tg_space_s"
+            android:layout_weight="1"
+            android:text="@string/btn_accept" />
+
+    </LinearLayout>
+
+</LinearLayout>

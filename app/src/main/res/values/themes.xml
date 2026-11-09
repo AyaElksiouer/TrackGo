@@ -1,0 +1,76 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ===== Socle commun (clair + sombre) : police, typographie, styles de composants ===== -->
+    <style name="Theme.TrackGo.Foundation" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Police par défaut de tous les textes (police du système pour l'instant) -->
+        <item name="android:fontFamily">sans-serif</item>
+
+        <!-- Typographie (titres : headline ; corps : body ; boutons/libellés : label) -->
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.TrackGo.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.TrackGo.HeadlineMedium</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.TrackGo.HeadlineSmall</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.TrackGo.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.TrackGo.TitleMedium</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.TrackGo.TitleSmall</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.TrackGo.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.TrackGo.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.TrackGo.BodySmall</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.TrackGo.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.TrackGo.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.TrackGo.LabelSmall</item>
+
+        <!-- Styles par défaut des composants -->
+        <item name="materialButtonStyle">@style/Widget.TrackGo.Button</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.TrackGo.Button.Outlined</item>
+        <item name="materialCardViewStyle">@style/Widget.TrackGo.Card</item>
+        <item name="textInputStyle">@style/Widget.TrackGo.TextInputLayout.OutlinedBox</item>
+        <item name="bottomNavigationStyle">@style/Widget.TrackGo.BottomNavigation</item>
+
+        <!-- Barre d'état transparente : le fond de l'écran passe derrière -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- ===== MODE CLAIR ===== -->
+    <style name="Base.Theme.TrackGo" parent="Theme.TrackGo.Foundation">
+        <item name="colorPrimary">@color/tg_light_primary</item>
+        <item name="colorOnPrimary">@color/tg_light_on_primary</item>
+        <item name="colorPrimaryContainer">@color/tg_light_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/tg_light_on_primary_container</item>
+        <item name="colorSecondary">@color/tg_light_secondary</item>
+        <item name="colorOnSecondary">@color/tg_light_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/tg_light_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/tg_light_on_secondary_container</item>
+        <item name="colorTertiary">@color/tg_light_tertiary</item>
+        <item name="colorOnTertiary">@color/tg_light_on_tertiary</item>
+        <item name="colorTertiaryContainer">@color/tg_light_tertiary_container</item>
+        <item name="colorOnTertiaryContainer">@color/tg_light_on_tertiary_container</item>
+        <item name="colorError">@color/tg_light_error</item>
+        <item name="colorOnError">@color/tg_light_on_error</item>
+        <item name="colorErrorContainer">@color/tg_light_error_container</item>
+        <item name="colorOnErrorContainer">@color/tg_light_on_error_container</item>
+        <item name="android:colorBackground">@color/tg_light_background</item>
+        <item name="colorOnBackground">@color/tg_light_on_background</item>
+        <item name="colorSurface">@color/tg_light_surface</item>
+        <item name="colorOnSurface">@color/tg_light_on_surface</item>
+        <item name="colorSurfaceVariant">@color/tg_light_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/tg_light_on_surface_variant</item>
+        <item name="colorSurfaceContainerLowest">@color/tg_light_surface_lowest</item>
+        <item name="colorSurfaceContainerLow">@color/tg_light_surface_low</item>
+        <item name="colorSurfaceContainer">@color/tg_light_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/tg_light_surface_high</item>
+        <item name="colorSurfaceContainerHighest">@color/tg_light_surface_highest</item>
+        <item name="colorOutline">@color/tg_light_outline</item>
+        <item name="colorOutlineVariant">@color/tg_light_outline_variant</item>
+        <item name="colorSurfaceInverse">@color/tg_light_inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/tg_light_inverse_on_surface</item>
+        <item name="colorPrimaryInverse">@color/tg_light_inverse_primary</item>
+        <item name="tgPending">@color/tg_light_pending</item>
+        <item name="tgPendingContainer">@color/tg_light_pending_container</item>
+        <item name="tgOnPendingContainer">@color/tg_light_on_pending_container</item>
+
+        <!-- Icônes de la barre d'état sombres sur fond clair -->
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Theme.TrackGo" parent="Base.Theme.TrackGo" />
+</resources>

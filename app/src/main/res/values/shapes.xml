@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ShapeAppearance.TrackGo.Card" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/tg_radius_card</item>
+    </style>
+
+    <style name="ShapeAppearance.TrackGo.Button" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/tg_radius_button</item>
+    </style>
+
+    <!-- Capsule : chips et badges -->
+    <style name="ShapeAppearance.TrackGo.Pill" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>

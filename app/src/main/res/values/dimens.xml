@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Rayons des coins -->
+    <dimen name="tg_radius_card">20dp</dimen>
+    <dimen name="tg_radius_button">14dp</dimen>
+    <dimen name="tg_radius_field">14dp</dimen>
+
+    <!-- Tailles de composants -->
+    <dimen name="tg_button_height">52dp</dimen>
+    <dimen name="tg_stroke">1dp</dimen>
+
+    <!-- Échelle d'espacement (multiples de 4 dp) -->
+    <dimen name="tg_space_xs">4dp</dimen>
+    <dimen name="tg_space_s">8dp</dimen>
+    <dimen name="tg_space_m">12dp</dimen>
+    <dimen name="tg_space_l">16dp</dimen>
+    <dimen name="tg_space_xl">20dp</dimen>
+    <dimen name="tg_space_xxl">24dp</dimen>
+    <dimen name="tg_space_xxxl">32dp</dimen>
+    <dimen name="tg_screen_padding">20dp</dimen>
+</resources>

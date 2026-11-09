@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Contenu de la fenêtre "Annuler la commande" (étape 6, design : étape 4).
+     Le titre et les boutons sont créés par DeliveryManagementFragment.kt (showCancelOrderDialog).
+     Le motif est OBLIGATOIRE : si le champ est vide, le code affiche une erreur
+     (rouge, couleur d'erreur du thème) dans layoutCancelReason et laisse la fenêtre ouverte. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/tg_space_xxl"
+    android:paddingTop="@dimen/tg_space_s"
+    android:paddingEnd="@dimen/tg_space_xxl"
+    android:paddingBottom="@dimen/tg_space_s">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutCancelReason"
+        style="@style/Widget.TrackGo.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/cancel_order_hint">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editCancelReason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top|start"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLines="4"
+            android:minLines="2" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

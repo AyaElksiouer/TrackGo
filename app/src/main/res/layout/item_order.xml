@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Une carte "commande" de la page Gestion des commandes (étape 6, design : étape 4).
+     Tous les textes sont remplis par DeliveryManagementFragment.kt (loadOrders) :
+     "tools:text" ne sert qu'à l'aperçu dans Android Studio.
+     Les champs inutiles pour un statut donné sont masqués (visibility="gone") par le code.
+     La carte prend le style TrackGo (coins, contour fin, sans ombre) : rien n'est forcé ici.
+     Les couleurs viennent du thème (clair / sombre automatiques). -->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/tg_space_m">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/tg_space_l">
+
+        <!-- "Commande CMD-1002" -->
+        <TextView
+            android:id="@+id/txtOrderItemTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:textColor="?attr/colorOnSurface"
+            tools:text="Commande CMD-1002" />
+
+        <!-- Pastille du statut : En attente (orange) / En cours (bleu) / Livrée (vert) / Annulée (rouge).
+             Le fond et la couleur du texte sont réglés par le code (applyStatusColors) ;
+             les valeurs ci-dessous sont seulement celles par défaut. -->
+        <TextView
+            android:id="@+id/txtOrderItemStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tg_space_s"
+            android:background="@drawable/bg_tg_status_pill"
+            android:paddingStart="12dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="4dp"
+            android:textAppearance="?attr/textAppearanceLabelMedium"
+            android:textColor="?attr/colorOnPrimaryContainer"
+            tools:text="Statut : En attente" />
+
+        <!-- Séparateur fin entre l'en-tête et les informations -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tg_stroke"
+            android:layout_marginTop="@dimen/tg_space_m"
+            android:background="?attr/colorOutlineVariant" />
+
+        <TextView
+            android:id="@+id/txtOrderItemCustomer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tg_space_m"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurface"
+            tools:text="Client : Khadija Bennani" />
+
+        <TextView
+            android:id="@+id/txtOrderItemPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tg_space_xs"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            tools:text="Téléphone : 06 12 34 56 78" />
+
+        <TextView
+            android:id="@+id/txtOrderItemAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tg_space_xs"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurface"
+            tools:text="Montant : 85 MAD" />
+
+        <TextView
+            android:id="@+id/txtOrderItemDistance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tg_space_xs"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            tools:text="Distance : 0.45 km" />
+
+        <!-- En cours et livrée seulement -->
+        <TextView
+            android:id="@+id/txtOrderItemStartTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tg_space_xs"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:visibility="gone"
+            tools:text="Heure de début : 01/01/2026 12:00" />
+
+        <!-- Livrée seulement -->
+        <TextView
+            android:id="@+id/txtOrderItemDuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tg_space_xs"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:visibility="gone"
+            tools:text="Durée : 00:12:30" />
+
+        <!-- Annulée seulement : le motif d'annulation est toujours visible (rouge) -->
+        <TextView
+            android:id="@+id/txtOrderItemCancelReason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tg_space_s"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorError"
+            android:visibility="gone"
+            tools:text="Motif d'annulation : Client injoignable" />
+
+        <!-- Zone des boutons d'action (visible seulement pour En attente et En cours).
+             En attente : Démarrer (bleu) + Annuler la commande (contour rouge).
+             En cours   : Terminer (vert) + Annuler la commande (contour rouge).
+             Le code (DeliveryManagementFragment) n'affiche qu'un seul des deux premiers.
+             Les boutons masqués ne prennent aucune place : les deux boutons visibles
+             ont toujours la même largeur. -->
+        <LinearLayout
+            android:id="@+id/layoutOrderActions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tg_space_l"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <!-- Commande en attente : démarre la livraison (GPS) - bleu TrackGo par défaut -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnStartOrder"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/tg_space_l"
+                android:paddingEnd="@dimen/tg_space_l"
+                android:text="@string/btn_start_order"
+                android:visibility="gone" />
+
+            <!-- Commande en cours : termine la livraison - vert -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFinishOrder"
+                style="@style/Widget.TrackGo.Button.Success"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/tg_space_l"
+                android:paddingEnd="@dimen/tg_space_l"
+                android:text="@string/btn_finish_order"
+                android:visibility="gone" />
+
+            <!-- Annuler : contour rouge (le texte passe à la ligne si l'écran est étroit) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancelOrder"
+                style="@style/Widget.TrackGo.Button.Outlined.Danger"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tg_space_s"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/tg_space_l"
+                android:paddingEnd="@dimen/tg_space_l"
+                android:text="@string/btn_cancel_order" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

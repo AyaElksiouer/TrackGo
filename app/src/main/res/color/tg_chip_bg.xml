@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fond des filtres de l'Historique : bleu clair (clair) / bleu profond (sombre) quand le filtre
+     est sélectionné, transparent sinon. Les couleurs viennent du thème. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="?attr/colorPrimaryContainer" android:state_checked="true" />
+    <item android:color="@android:color/transparent" />
+</selector>

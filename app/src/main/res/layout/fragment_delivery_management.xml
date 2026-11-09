@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Page "Gestion des commandes" (design : étape 4).
+     Les cartes des commandes (item_order.xml) sont ajoutées dans ordersContainer par le code Kotlin. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/tg_screen_padding">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/management_title"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+            android:textColor="?attr/colorOnSurface" />
+
+        <!-- ===== Commandes ===== -->
+        <!-- Commandes en attente, en cours, livrées et annulées (données d'OrderManager). -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tg_space_xxl"
+            android:text="@string/management_orders_title"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:textColor="?attr/colorOnSurfaceVariant" />
+
+        <TextView
+            android:id="@+id/txtOrdersEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tg_space_m"
+            android:text="@string/management_orders_empty"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:visibility="gone" />
+
+        <!-- Les cartes des commandes (item_order.xml) sont ajoutées ici par le code Kotlin -->
+        <LinearLayout
+            android:id="@+id/ordersContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tg_space_m"
+            android:orientation="vertical" />
+
+    </LinearLayout>
+
+</ScrollView>

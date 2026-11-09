@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Couleurs du statut « En attente » (orange), absentes du système Material.
+         Utilisation dans un layout :  ?attr/tgPending, ?attr/tgPendingContainer, ?attr/tgOnPendingContainer
+         (valeurs différentes en mode clair et en mode sombre, définies dans themes.xml). -->
+    <attr name="tgPending" format="color" />
+    <attr name="tgPendingContainer" format="color" />
+    <attr name="tgOnPendingContainer" format="color" />
+</resources>

@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Page "Profil" (design : étape 6A du redesign). Mêmes IDs qu'avant :
+     ProfileFragment.kt les retrouve tous (+ 2 nouveaux : txtProfileFullName, txtProfileInitials).
+     Toutes les couleurs viennent du thème (?attr/...) : clair et sombre sont gérés tout seuls.
+     Le seul blanc "en dur" est la plaque du QR Code (le QR est toujours noir sur blanc).
+     "tools:text" = aperçu dans Android Studio seulement. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/tg_screen_padding">
+
+        <!-- Titre de la page (même style que l'Historique) -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_title"
+            android:textAlignment="viewStart"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+            android:textColor="?attr/colorOnSurface" />
+
+        <!-- ===================================================================
+             ÉTAT 1 : profil pas encore renseigné
+             =================================================================== -->
+        <LinearLayout
+            android:id="@+id/layoutNoProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tg_space_xl"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="@dimen/tg_space_xxl">
+
+                    <!-- Grande pastille avec la silhouette -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        app:cardBackgroundColor="?attr/colorPrimaryContainer"
+                        app:cardCornerRadius="36dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp">
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_gravity="center"
+                            android:importantForAccessibility="no"
+                            android:src="@drawable/ic_profile_person"
+                            app:tint="?attr/colorOnPrimaryContainer" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/tg_space_xl"
+                        android:gravity="center"
+                        android:text="@string/profile_empty_title"
+                        android:textAppearance="?attr/textAppearanceTitleLarge"
+                        android:textColor="?attr/colorOnSurface" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/tg_space_s"
+                        android:gravity="center"
+                        android:text="@string/profile_empty_message"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFillProfile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/tg_space_xxl"
+                        android:text="@string/profile_fill_button"
+                        app:icon="@drawable/ic_profile_edit"
+                        app:iconGravity="textStart"
+                        app:iconPadding="@dimen/tg_space_s" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <!-- ===================================================================
+             ÉTAT 2 : profil existant (identité + tuiles + informations + QR Code)
+             =================================================================== -->
+        <LinearLayout
+            android:id="@+id/layoutProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tg_space_xl"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- ===== Carte d'identité : avatar, nom, rôle, bouton Modifier ===== -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="@dimen/tg_space_xxl">
+
+                    <!-- Avatar rond avec les initiales -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="88dp"
+                        android:layout_height="88dp"
+                        app:cardBackgroundColor="?attr/colorPrimary"
+                        app:cardCornerRadius="44dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp">
+
+                        <TextView
+                            android:id="@+id/txtProfileInitials"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textAppearance="?attr/textAppearanceHeadlineMedium"
+                            android:textColor="?attr/colorOnPrimary"
+                            tools:text="HB" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Prénom + nom -->
+                    <TextView
+                        android:id="@+id/txtProfileFullName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/tg_space_l"
+                        android:gravity="center"
+                        android:textAppearance="?attr/textAppearanceHeadlineSmall"
+                        android:textColor="?attr/colorOnSurface"
+                        tools:text="Hélène Benali" />
+
+                    <!-- Pastille de rôle (le fond en capsule existe déjà : bg_tg_status_pill) -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/tg_space_s"
+                        android:background="@drawable/bg_tg_status_pill"
+                        android:paddingStart="@dimen/tg_space_m"
+                        android:paddingTop="@dimen/tg_space_xs"
+                        android:paddingEnd="@dimen/tg_space_m"
+                        android:paddingBottom="@dimen/tg_space_xs"
+                        android:text="@string/profile_role"
+                        android:textAppearance="?attr/textAppearanceLabelLarge"
+                        android:textColor="?attr/colorOnPrimaryContainer" />
+
+                    <!-- Action principale de la page : visible sans défiler -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEditProfile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/tg_space_xxl"
+                        android:text="@string/profile_edit_button"
+                        app:icon="@drawable/ic_profile_edit"
+                        app:iconGravity="textStart"
+                        app:iconPadding="@dimen/tg_space_s" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ===== Deux tuiles côte à côte : âge et permis ===== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tg_space_l"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <!-- Âge -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/tg_space_m"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/tg_space_l">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="?attr/tgPendingContainer"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:importantForAccessibility="no"
+                                android:src="@drawable/ic_profile_calendar"
+                                app:tint="?attr/tgOnPendingContainer" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/tg_space_m"
+                            android:text="@string/hint_age"
+                            android:textAlignment="viewStart"
+                            android:textAppearance="?attr/textAppearanceLabelMedium"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+
+                        <TextView
+                            android:id="@+id/txtProfileAge"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/tg_space_xs"
+                            android:maxLines="1"
+                            android:textAlignment="viewStart"
+                            android:textAppearance="?attr/textAppearanceTitleLarge"
+                            android:textColor="?attr/colorOnSurface"
+                            tools:text="28 ans" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Permis -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/tg_space_l">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="?attr/tgPendingContainer"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:importantForAccessibility="no"
+                                android:src="@drawable/ic_profile_license"
+                                app:tint="?attr/tgOnPendingContainer" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/tg_space_m"
+                            android:text="@string/hint_license"
+                            android:textAlignment="viewStart"
+                            android:textAppearance="?attr/textAppearanceLabelMedium"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+
+                        <TextView
+                            android:id="@+id/txtProfileLicense"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/tg_space_xs"
+                            android:maxLines="1"
+                            android:textAlignment="viewStart"
+                            android:textAppearance="?attr/textAppearanceTitleLarge"
+                            android:textColor="?attr/colorOnSurface"
+                            tools:text="B" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- ===== Informations personnelles : nom, prénom, CIN ===== -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tg_space_l">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/tg_space_xl"
+                    android:paddingTop="@dimen/tg_space_xl"
+                    android:paddingEnd="@dimen/tg_space_xl"
+                    android:paddingBottom="@dimen/tg_space_s">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_info_section"
+                        android:textAlignment="viewStart"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textColor="?attr/colorOnSurface" />
+
+                    <!-- Nom -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/tg_space_s"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/tg_space_m"
+                        android:paddingBottom="@dimen/tg_space_m">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="?attr/colorSurfaceContainerHighest"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:importantForAccessibility="no"
+                                android:src="@drawable/ic_profile_person"
+                                app:tint="?attr/colorOnSurfaceVariant" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/tg_space_l"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/hint_last_name"
+                                android:textAlignment="viewStart"
+                                android:textAppearance="?attr/textAppearanceLabelMedium"
+                                android:textColor="?attr/colorOnSurfaceVariant" />
+
+                            <TextView
+                                android:id="@+id/txtProfileLastName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textAlignment="viewStart"
+                                android:textAppearance="?attr/textAppearanceTitleMedium"
+                                android:textColor="?attr/colorOnSurface"
+                                tools:text="Benali" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/tg_stroke"
+                        android:background="?attr/colorOutlineVariant" />
+
+                    <!-- Prénom -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/tg_space_m"
+                        android:paddingBottom="@dimen/tg_space_m">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="?attr/colorSurfaceContainerHighest"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:importantForAccessibility="no"
+                                android:src="@drawable/ic_profile_person"
+                                app:tint="?attr/colorOnSurfaceVariant" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/tg_space_l"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/hint_first_name"
+                                android:textAlignment="viewStart"
+                                android:textAppearance="?attr/textAppearanceLabelMedium"
+                                android:textColor="?attr/colorOnSurfaceVariant" />
+
+                            <TextView
+                                android:id="@+id/txtProfileFirstName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textAlignment="viewStart"
+                                android:textAppearance="?attr/textAppearanceTitleMedium"
+                                android:textColor="?attr/colorOnSurface"
+                                tools:text="Hélène" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/tg_stroke"
+                        android:background="?attr/colorOutlineVariant" />
+
+                    <!-- CIN / identifiant -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/tg_space_m"
+                        android:paddingBottom="@dimen/tg_space_m">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="?attr/colorSurfaceContainerHighest"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:importantForAccessibility="no"
+                                android:src="@drawable/ic_profile_badge"
+                                app:tint="?attr/colorOnSurfaceVariant" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/tg_space_l"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/hint_cin"
+                                android:textAlignment="viewStart"
+                                android:textAppearance="?attr/textAppearanceLabelMedium"
+                                android:textColor="?attr/colorOnSurfaceVariant" />
+
+                            <TextView
+                                android:id="@+id/txtProfileCin"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textAlignment="viewStart"
+                                android:textAppearance="?attr/textAppearanceTitleMedium"
+                                android:textColor="?attr/colorOnSurface"
+                                tools:text="AB123456" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ===== Carte du QR Code ===== -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardQrCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tg_space_l">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/tg_space_xl">
+
+                    <!-- En-tête : icône + titre + explication -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="?attr/colorPrimaryContainer"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:importantForAccessibility="no"
+                                android:src="@drawable/ic_profile_qr"
+                                app:tint="?attr/colorOnPrimaryContainer" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/tg_space_l"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/qr_title"
+                                android:textAlignment="viewStart"
+                                android:textAppearance="?attr/textAppearanceTitleMedium"
+                                android:textColor="?attr/colorOnSurface" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/qr_hint"
+                                android:textAlignment="viewStart"
+                                android:textAppearance="?attr/textAppearanceBodySmall"
+                                android:textColor="?attr/colorOnSurfaceVariant" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Plaque BLANCHE volontaire : le QR Code est toujours noir sur blanc,
+                         quel que soit le thème (c'est ce qui le rend facile à scanner).
+                         La taille (200dp) doit rester identique à QR_SIZE_DP dans ProfileFragment.kt -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/tg_space_xl"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="?attr/colorOutlineVariant"
+                        app:strokeWidth="1dp">
+
+                        <ImageView
+                            android:id="@+id/imgQrCode"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:contentDescription="@string/qr_content_description"
+                            android:scaleType="fitCenter" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

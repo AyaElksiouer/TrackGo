@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Page "Historique" (design : étape 5 du redesign). Mêmes IDs qu'avant :
+     HistoryFragment.kt les retrouve tous. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- ===== En-tête fixe : titre, recherche, filtres ===== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/tg_screen_padding"
+        android:paddingTop="@dimen/tg_screen_padding"
+        android:paddingEnd="@dimen/tg_screen_padding"
+        android:paddingBottom="@dimen/tg_space_s">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/history_title"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+            android:textColor="?attr/colorOnSurface" />
+
+        <!-- Barre de recherche en capsule : fond tonal, sans contour, loupe à gauche,
+             croix d'effacement à droite -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tg_space_l"
+            android:hint="@string/history_search_hint"
+            app:boxBackgroundColor="?attr/colorSurfaceContainerHighest"
+            app:boxCornerRadiusBottomEnd="28dp"
+            app:boxCornerRadiusBottomStart="28dp"
+            app:boxCornerRadiusTopEnd="28dp"
+            app:boxCornerRadiusTopStart="28dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:endIconMode="clear_text"
+            app:startIconDrawable="@drawable/ic_history_search"
+            app:startIconTint="?attr/colorOnSurfaceVariant">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Les filtres défilent si l'écran est trop étroit -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tg_space_m"
+            android:scrollbars="none">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupPeriod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:selectionRequired="true"
+                app:singleLine="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipAll"
+                    style="@style/Widget.TrackGo.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/chip_all"
+                    android:textColor="@color/tg_chip_text"
+                    app:checkedIconVisible="false"
+                    app:chipBackgroundColor="@color/tg_chip_bg" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipToday"
+                    style="@style/Widget.TrackGo.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_today"
+                    android:textColor="@color/tg_chip_text"
+                    app:checkedIconVisible="false"
+                    app:chipBackgroundColor="@color/tg_chip_bg" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipWeek"
+                    style="@style/Widget.TrackGo.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_week"
+                    android:textColor="@color/tg_chip_text"
+                    app:checkedIconVisible="false"
+                    app:chipBackgroundColor="@color/tg_chip_bg" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipMonth"
+                    style="@style/Widget.TrackGo.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_month"
+                    android:textColor="@color/tg_chip_text"
+                    app:checkedIconVisible="false"
+                    app:chipBackgroundColor="@color/tg_chip_bg" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+    <!-- ===== Résultats : cette partie défile ===== -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/tg_screen_padding"
+            android:paddingTop="@dimen/tg_space_s"
+            android:paddingEnd="@dimen/tg_screen_padding"
+            android:paddingBottom="@dimen/tg_screen_padding">
+
+            <!-- Texte rempli par HistoryFragment.kt ("tools:text" = aperçu seulement) -->
+            <TextView
+                android:id="@+id/txtResultCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceLabelLarge"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                android:visibility="gone"
+                tools:text="3 livraisons trouvées" />
+
+            <!-- Message affiché quand il n'y a aucune livraison ou aucun résultat :
+                 l'icône au-dessus du texte apparaît et disparaît avec lui -->
+            <TextView
+                android:id="@+id/txtHistoryMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tg_space_xxxl"
+                android:drawablePadding="@dimen/tg_space_l"
+                android:drawableTint="?attr/colorOutline"
+                android:drawableTop="@drawable/ic_history_empty"
+                android:gravity="center"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                android:visibility="gone"
+                tools:text="Aucune livraison enregistrée pour le moment."
+                tools:visibility="visible" />
+
+            <!-- Les cartes sont ajoutées ici par le code Kotlin -->
+            <LinearLayout
+                android:id="@+id/historyContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tg_space_m"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

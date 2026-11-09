@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- ===================== Identité TrackGo « Route de nuit » ===================== -->
+    <!-- Couleurs de marque (références) -->
+    <color name="tg_blue">#2563EB</color>
+    <color name="tg_orange">#F97316</color>
+    <color name="tg_green">#10B981</color>
+    <color name="tg_red">#EF4444</color>
+    <color name="tg_navy">#0F172A</color>
+    <color name="tg_cloud">#F6F8FC</color>
+
+    <!-- ===================== MODE CLAIR ===================== -->
+    <color name="tg_light_primary">#2563EB</color>
+    <color name="tg_light_on_primary">#FFFFFF</color>
+    <color name="tg_light_primary_container">#DBE6FF</color>
+    <color name="tg_light_on_primary_container">#0B2A7A</color>
+
+    <color name="tg_light_secondary">#475A7A</color>
+    <color name="tg_light_on_secondary">#FFFFFF</color>
+    <color name="tg_light_secondary_container">#DDE6FA</color>
+    <color name="tg_light_on_secondary_container">#14264F</color>
+
+    <color name="tg_light_tertiary">#10B981</color>
+    <color name="tg_light_on_tertiary">#022C22</color>
+    <color name="tg_light_tertiary_container">#D1FAE5</color>
+    <color name="tg_light_on_tertiary_container">#065F46</color>
+
+    <color name="tg_light_error">#DC2626</color>
+    <color name="tg_light_on_error">#FFFFFF</color>
+    <color name="tg_light_error_container">#FEE2E2</color>
+    <color name="tg_light_on_error_container">#7F1D1D</color>
+
+    <color name="tg_light_background">#F6F8FC</color>
+    <color name="tg_light_on_background">#0F172A</color>
+    <color name="tg_light_surface">#F6F8FC</color>
+    <color name="tg_light_on_surface">#0F172A</color>
+    <color name="tg_light_surface_variant">#E8EDF6</color>
+    <color name="tg_light_on_surface_variant">#475569</color>
+    <color name="tg_light_surface_lowest">#FFFFFF</color>
+    <color name="tg_light_surface_low">#FFFFFF</color>
+    <color name="tg_light_surface_container">#FFFFFF</color>
+    <color name="tg_light_surface_high">#FFFFFF</color>
+    <color name="tg_light_surface_highest">#EAEFF8</color>
+
+    <color name="tg_light_outline">#7C8CA3</color>
+    <color name="tg_light_outline_variant">#E2E8F0</color>
+    <color name="tg_light_inverse_surface">#1E293B</color>
+    <color name="tg_light_inverse_on_surface">#F1F5F9</color>
+    <color name="tg_light_inverse_primary">#9DB8FF</color>
+
+    <color name="tg_light_pending">#F97316</color>
+    <color name="tg_light_pending_container">#FFEDD5</color>
+    <color name="tg_light_on_pending_container">#9A3412</color>
+
+    <!-- ===================== MODE SOMBRE ===================== -->
+    <color name="tg_dark_primary">#9DB8FF</color>
+    <color name="tg_dark_on_primary">#06194D</color>
+    <color name="tg_dark_primary_container">#1E3A8A</color>
+    <color name="tg_dark_on_primary_container">#DCE6FF</color>
+
+    <color name="tg_dark_secondary">#B7C3DE</color>
+    <color name="tg_dark_on_secondary">#1B2740</color>
+    <color name="tg_dark_secondary_container">#2A3B66</color>
+    <color name="tg_dark_on_secondary_container">#DCE6FF</color>
+
+    <color name="tg_dark_tertiary">#34D399</color>
+    <color name="tg_dark_on_tertiary">#022C22</color>
+    <color name="tg_dark_tertiary_container">#064E3B</color>
+    <color name="tg_dark_on_tertiary_container">#A7F3D0</color>
+
+    <color name="tg_dark_error">#F87171</color>
+    <color name="tg_dark_on_error">#450A0A</color>
+    <color name="tg_dark_error_container">#5C1D1D</color>
+    <color name="tg_dark_on_error_container">#FECACA</color>
+
+    <color name="tg_dark_background">#0F172A</color>
+    <color name="tg_dark_on_background">#E2E8F0</color>
+    <color name="tg_dark_surface">#0F172A</color>
+    <color name="tg_dark_on_surface">#E2E8F0</color>
+    <color name="tg_dark_surface_variant">#1E293B</color>
+    <color name="tg_dark_on_surface_variant">#94A3B8</color>
+    <color name="tg_dark_surface_lowest">#0B1220</color>
+    <color name="tg_dark_surface_low">#141D31</color>
+    <color name="tg_dark_surface_container">#162033</color>
+    <color name="tg_dark_surface_high">#1C2840</color>
+    <color name="tg_dark_surface_highest">#243049</color>
+
+    <color name="tg_dark_outline">#64748B</color>
+    <color name="tg_dark_outline_variant">#243049</color>
+    <color name="tg_dark_inverse_surface">#E2E8F0</color>
+    <color name="tg_dark_inverse_on_surface">#0F172A</color>
+    <color name="tg_dark_inverse_primary">#2563EB</color>
+
+    <color name="tg_dark_pending">#FB923C</color>
+    <color name="tg_dark_pending_container">#4A2410</color>
+    <color name="tg_dark_on_pending_container">#FED7AA</color>
+</resources>

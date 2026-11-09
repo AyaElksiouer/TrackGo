@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Typographie TrackGo : on garde les tailles Material 3 et on utilise les polices du système
+         (Inter / Plus Jakarta Sans seront ajoutées à la fin du projet).
+         letterSpacing = 0 PARTOUT : un espacement positif sépare les lettres arabes, qui doivent rester liées. -->
+    <style name="TextAppearance.TrackGo.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextAppearance.TrackGo.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextAppearance.TrackGo.HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextAppearance.TrackGo.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextAppearance.TrackGo.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextAppearance.TrackGo.TitleSmall" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextAppearance.TrackGo.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextAppearance.TrackGo.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextAppearance.TrackGo.BodySmall" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextAppearance.TrackGo.LabelLarge" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextAppearance.TrackGo.LabelMedium" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextAppearance.TrackGo.LabelSmall" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <!-- Libellés de la barre de navigation (11 sp : "Gestion des commandes" est long) -->
+    <style name="TextAppearance.TrackGo.NavLabel" parent="TextAppearance.TrackGo.LabelMedium">
+        <item name="android:textSize">11sp</item>
+    </style>
+</resources>

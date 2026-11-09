@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Couleur des icônes et des libellés de la barre de navigation.
+     Onglet sélectionné : bleu de la marque. Autres onglets : gris du thème.
+     Les couleurs viennent du thème : elles changent toutes seules en mode sombre. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="?attr/colorPrimary" android:state_checked="true" />
+    <item android:color="?attr/colorOnSurfaceVariant" />
+</selector>
